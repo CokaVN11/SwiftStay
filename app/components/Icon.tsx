@@ -9,6 +9,29 @@ import {
   View,
   ViewStyle,
 } from "react-native"
+import { colors, spacing } from "../theme"
+
+type Presets = keyof typeof $viewPresets
+
+const $baseViewStyle: ViewStyle = {
+  flexDirection: "row",
+  alignItems: "center",
+  justifyContent: "center",
+  overflow: "hidden",
+  paddingVertical: spacing.sm,
+  paddingHorizontal: spacing.sm,
+  minHeight: 56,
+  borderRadius: 4,
+}
+
+const $viewPresets = {
+  default: [
+    $baseViewStyle,
+    {
+      backgroundColor: colors.palette.neutral300,
+    }
+  ]
+}
 
 export type IconTypes = keyof typeof iconRegistry
 
@@ -60,7 +83,7 @@ export function Icon(props: IconProps) {
     ...WrapperProps
   } = props
 
-  const isPressable = !!WrapperProps.onPress
+  const isPressable = !!WrapperProps.onPress;
   const Wrapper: ComponentType<TouchableOpacityProps> = WrapperProps?.onPress
     ? TouchableOpacity
     : View

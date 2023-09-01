@@ -157,28 +157,39 @@ const $viewPresets = {
     },
   ] as StyleProp<ViewStyle>,
 
-  filled: [$baseViewStyle, { backgroundColor: colors.palette.neutral300 }] as StyleProp<ViewStyle>,
+  filled: [$baseViewStyle, { backgroundColor: colors.palette.primary300 }] as StyleProp<ViewStyle>,
 
   reversed: [
     $baseViewStyle,
     { backgroundColor: colors.palette.neutral800 },
   ] as StyleProp<ViewStyle>,
+
+  link: {
+    alignSelf: "flex-end",
+    paddingVertical: 0,
+    paddingHorizontal: 0,
+    backgroundColor: "transparent",
+
+  } as StyleProp<ViewStyle>,
 }
 
 const $textPresets: Record<Presets, StyleProp<TextStyle>> = {
-  default: $baseTextStyle,
-  filled: $baseTextStyle,
+  default: [$baseTextStyle, { color: colors.palette.neutral800}],
+  filled: [$baseTextStyle, {color: colors.palette.neutral100}],
   reversed: [$baseTextStyle, { color: colors.palette.neutral100 }],
+  link: [$baseTextStyle, { color: colors.palette.primary300 }],
 }
 
 const $pressedViewPresets: Record<Presets, StyleProp<ViewStyle>> = {
   default: { backgroundColor: colors.palette.neutral200 },
-  filled: { backgroundColor: colors.palette.neutral400 },
+  filled: { backgroundColor: colors.palette.primary400 },
   reversed: { backgroundColor: colors.palette.neutral700 },
+  link: { backgroundColor: "transparent" },
 }
 
 const $pressedTextPresets: Record<Presets, StyleProp<TextStyle>> = {
   default: { opacity: 0.9 },
   filled: { opacity: 0.9 },
   reversed: { opacity: 0.9 },
+  link: { opacity: 0.5 },
 }

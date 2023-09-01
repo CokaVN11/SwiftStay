@@ -25,6 +25,35 @@ const ko: Translations = {
       button: "다시 시도해봅시다",
     },
   },
+  loginScreen: {
+    login: "로그인",
+    forgotPassword: "비밀번호를 잊으셨나요?",
+    createAccount: "계정을 만드세요",
+    noAccount: "계정이 없으신가요?",
+    signUp: "가입하기",
+    username: "사용자 이름",
+    password: "비밀번호",
+    email: "이메일",
+    welcome: "Swift Stay 오신 것을 환영합니다",
+    loginAsGuest: "게스트로 로그인",
+  },
+  registerScreen: {
+    callout: "당신은",
+    register: "가입하기",
+    customer: "고객",
+    customerDesc: "숙박을 찾는 사람",
+    host: "호스트",
+    hostDesc: "숙박을 제공하는 사람",
+    firstName: "이름",
+    lastName: "성",
+    phoneNumber: "전화번호",
+    address: "주소",
+    city: "도시",
+    province: "도",
+    phone: "전화번호",
+    hotel_name: "호텔 이름",
+    email: "이메일",
+  }
 }
 
 export default ko

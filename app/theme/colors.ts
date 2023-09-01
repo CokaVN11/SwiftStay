@@ -1,40 +1,40 @@
 // TODO: write documentation for colors and palette in own markdown file and add links from here
 
 const palette = {
-  neutral100: "#FFFFFF",
-  neutral200: "#F4F2F1",
-  neutral300: "#D7CEC9",
-  neutral400: "#B6ACA6",
-  neutral500: "#978F8A",
-  neutral600: "#564E4A",
-  neutral700: "#3C3836",
-  neutral800: "#191015",
-  neutral900: "#000000",
+  neutral100: "#FFFFFF", // white
+  neutral200: "#F4F2F1", // lightest grey
+  neutral300: "#D7CEC9", // light grey
+  neutral400: "#B6ACA6", // grey
+  neutral500: "#978F8A", // dark grey
+  neutral600: "#564E4A", // dark grey
+  neutral700: "#3C3836", // dark grey
+  neutral800: "#191015", // black
+  neutral900: "#000000", // black
 
-  primary100: "#F4E0D9",
-  primary200: "#E8C1B4",
-  primary300: "#DDA28E",
-  primary400: "#D28468",
-  primary500: "#C76542",
-  primary600: "#A54F31",
+  primary100: "#F4E0D9", // lightest orange
+  primary200: "#FCDBC5", // light orange
+  primary300: "#FF6400", // orange
+  primary400: "#E65A00", // dark orange
+  primary500: "#C34C00", // darker orange
+  primary600: "#A63E00", // darkest orange
 
-  secondary100: "#DCDDE9",
-  secondary200: "#BCC0D6",
-  secondary300: "#9196B9",
-  secondary400: "#626894",
-  secondary500: "#41476E",
+  secondary100: "#DCDDE9", // lightest blue
+  secondary200: "#BCC0D6", // light blue
+  secondary300: "#9196B9", // blue
+  secondary400: "#626894", // dark blue
+  secondary500: "#41476E", // darker blue
 
-  accent100: "#FFEED4",
-  accent200: "#FFE1B2",
-  accent300: "#FDD495",
-  accent400: "#FBC878",
-  accent500: "#FFBB50",
+  accent100: "#FFEED4", // lightest yellow
+  accent200: "#FFE1B2", // light yellow
+  accent300: "#FDD495", // yellow
+  accent400: "#FBC878", // dark yellow
+  accent500: "#FFBB50", // darker yellow
 
-  angry100: "#F2D6CD",
-  angry500: "#C03403",
+  angry100: "#F2D6CD", // lightest red
+  angry500: "#C03403", // red
 
-  overlay20: "rgba(25, 16, 21, 0.2)",
-  overlay50: "rgba(25, 16, 21, 0.5)",
+  overlay20: "rgba(25, 16, 21, 0.2)", // black
+  overlay50: "rgba(25, 16, 21, 0.5)", // black
 } as const
 
 export const colors = {
@@ -63,7 +63,11 @@ export const colors = {
   /**
    * The default border color.
    */
-  border: palette.neutral400,
+  border: palette.neutral300,
+  /**
+   * The header color.
+   */
+  header: palette.primary300,
   /**
    * The main tinting color.
    */
@@ -81,4 +85,45 @@ export const colors = {
    *
    */
   errorBackground: palette.angry100,
+
+  /**
+   * The color of success messages.
+   */
+  success: palette.accent500,
+  /**
+   * Success Background.
+   *
+   */
+  successBackground: palette.accent100,
+
+  /**
+   * The color of warning messages.
+   *
+   **/
+  warning: palette.accent500,
+  /**
+   * Warning Background.
+   *
+   */
+  warningBackground: palette.accent100,
+  /**
+   * The color of info messages.
+   */
+  info: palette.secondary500,
+  /**
+   * Info Background.
+   *
+   */
+  infoBackground: palette.secondary100,
+
+  /**
+   * The color of disabled text.
+   */
+  disabled: palette.neutral400,
+  /**
+   * The background color of disabled buttons.
+   */
+  disabledBackground: palette.neutral100,
+
+
 }

@@ -35,10 +35,10 @@ export const NAVIGATION_PERSISTENCE_KEY = "NAVIGATION_STATE"
 const prefix = Linking.createURL("/")
 const config = {
   screens: {
-    Login: {
-      path: "",
-    },
     Welcome: "welcome",
+    Login: "login",
+    Register: "register",
+    Hello: "hello",
     Demo: {
       screens: {
         DemoShowroom: {
@@ -100,6 +100,7 @@ function App(props: AppProps) {
           linking={linking}
           initialState={initialNavigationState}
           onStateChange={onNavigationStateChange}
+
         />
       </ErrorBoundary>
     </SafeAreaProvider>

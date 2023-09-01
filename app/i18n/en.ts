@@ -23,6 +23,35 @@ const en = {
       button: "Let's try this again",
     },
   },
+  loginScreen: {
+    login: "Login",
+    forgotPassword: "Forgot Password?",
+    createAccount: "Create Account",
+    noAccount: "If you don't have an account? ",
+    signUp: "Sign Up",
+    username: "Username",
+    password: "Password",
+    email: "Email",
+    welcome: "Welcome to Swift Stay",
+    loginAsGuest: "Login as Guest",
+  },
+  registerScreen: {
+    callout: "You are",
+    register: "Register",
+    customer: "Customer",
+    customerDesc: "Who finds a place to stay",
+    host: "Host",
+    hostDesc: "Who provides a place to stay",
+    firstName: "First Name",
+    lastName: "Last Name",
+    phoneNumber: "Phone Number",
+    address: "Address",
+    city: "City",
+    province: "Province",
+    phone: "Phone",
+    hotel_name: "Hotel Name",
+    email: "Email",
+  }
 }
 
 export default en
