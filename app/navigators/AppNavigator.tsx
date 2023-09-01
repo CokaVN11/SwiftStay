@@ -56,10 +56,10 @@ const AppStack = observer(function AppStack() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false, navigationBarColor: colors.background }}>
       <Stack.Screen name="Login" component={Screens.LoginScreen} />
+      <Stack.Screen name="RegisterForm" component={Screens.RegisterFormScreen} />
       <Stack.Screen name="Register" component={Screens.RegisterScreen} />
       <Stack.Screen name="Hello" component={Screens.HelloScreen} />
       <Stack.Screen name="Welcome" component={Screens.WelcomeScreen} />
-      <Stack.Screen name="RegisterForm" component={Screens.RegisterFormScreen} />
       {/* IGNITE_GENERATOR_ANCHOR_APP_STACK_SCREENS */}
     </Stack.Navigator>
   )

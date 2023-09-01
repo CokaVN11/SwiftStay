@@ -65,6 +65,8 @@ export interface ButtonProps extends PressableProps {
    * Children components.
    */
   children?: React.ReactNode
+
+  TextProps?: TextProps
 }
 
 /**
@@ -85,6 +87,7 @@ export function Button(props: ButtonProps) {
     children,
     RightAccessory,
     LeftAccessory,
+    TextProps,
     ...rest
   } = props
 
@@ -110,7 +113,7 @@ export function Button(props: ButtonProps) {
         <>
           {!!LeftAccessory && <LeftAccessory style={$leftAccessoryStyle} pressableState={state} />}
 
-          <Text tx={tx} text={text} txOptions={txOptions} style={$textStyle(state)}>
+          <Text tx={tx} text={text} txOptions={txOptions} style={$textStyle(state)} {...TextProps} >
             {children}
           </Text>
 
@@ -164,13 +167,16 @@ const $viewPresets = {
     { backgroundColor: colors.palette.neutral800 },
   ] as StyleProp<ViewStyle>,
 
-  link: {
-    alignSelf: "flex-end",
-    paddingVertical: 0,
-    paddingHorizontal: 0,
-    backgroundColor: "transparent",
+  link: [
+    $baseViewStyle,
+    {
+      minHeight: 0,
+      paddingVertical: 0,
+      paddingHorizontal: 0,
+      backgroundColor: "transparent",
+    },
 
-  } as StyleProp<ViewStyle>,
+  ] as StyleProp<ViewStyle>,
 }
 
 const $textPresets: Record<Presets, StyleProp<TextStyle>> = {

@@ -55,7 +55,7 @@ export const colors = {
   /**
    * Secondary text information.
    */
-  textDim: palette.neutral600,
+  textDim: palette.neutral500,
   /**
    * The default color of the screen background.
    */

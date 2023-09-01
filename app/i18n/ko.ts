@@ -33,7 +33,6 @@ const ko: Translations = {
     signUp: "가입하기",
     username: "사용자 이름",
     password: "비밀번호",
-    email: "이메일",
     welcome: "Swift Stay 오신 것을 환영합니다",
     loginAsGuest: "게스트로 로그인",
   },
@@ -41,9 +40,12 @@ const ko: Translations = {
     callout: "당신은",
     register: "가입하기",
     customer: "고객",
-    customerDesc: "숙박을 찾는 사람",
+    customerDesc: "숙소를 찾는 사람",
     host: "호스트",
-    hostDesc: "숙박을 제공하는 사람",
+    hostDesc: "숙소를 제공하는 사람",
+    username: "사용자 이름",
+    password: "비밀번호",
+    confirmPassword: "비밀번호 확인",
     firstName: "이름",
     lastName: "성",
     phoneNumber: "전화번호",
@@ -53,7 +55,8 @@ const ko: Translations = {
     phone: "전화번호",
     hotel_name: "호텔 이름",
     email: "이메일",
-    term: "이용약관과 개인정보취급방침에 동의합니다"
+    agreeTerm: "저는 ",
+    term: "이용약관과 개인정보처리방침",
   }
 }
 

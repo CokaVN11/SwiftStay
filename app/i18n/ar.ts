@@ -45,6 +45,9 @@ const ar: Translations = {
     hostDesc: "من يوفر مكان للإقامة",
     firstName: "الاسم الاول",
     lastName: "الكنية",
+    username: "اسم المستخدم",
+    password: "كلمة المرور",
+    confirmPassword: "تأكيد كلمة المرور",
     phoneNumber: "رقم الهاتف",
     address: "عنوان",
     city: "مدينة",
@@ -52,6 +55,7 @@ const ar: Translations = {
     phone: "رقم الهاتف",
     hotel_name: "اسم الفندق",
     email: "البريد الإلكتروني",
+    agreeTerm: "أوافق على الشروط والأحكام",
     term: "أوافق على الشروط والأحكام",
   }
 }

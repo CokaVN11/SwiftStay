@@ -200,10 +200,6 @@ export function Toggle(props: ToggleProps) {
     onPress?.(e)
   }
 
-  React.useEffect(() => {
-    console.log(`Toggle running: ${value}`)
-  }, [value])
-
   return (
     <Wrapper
       activeOpacity={1}
@@ -286,7 +282,6 @@ function Checkbox(props: ToggleInputProps) {
     colors.palette.accent100,
   ].filter(Boolean)[0]
 
-  console.log(`checkbox running: ${on}`)
   return (
     <View
       style={[

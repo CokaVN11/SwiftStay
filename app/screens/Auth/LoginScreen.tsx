@@ -20,6 +20,7 @@ import { ImageStyle, View, ViewStyle } from "react-native"
 import { Button, Icon, Screen, Text, TextField } from "../../components"
 import { typography } from "../../theme"
 import { useNavigation } from "@react-navigation/native"
+
 // import { useStores } from "app/models"
 
 interface LoginScreenProps extends AppStackScreenProps<"Login"> {
@@ -72,19 +73,31 @@ export const LoginScreen: FC<LoginScreenProps> = observer(function LoginScreen()
       }} preset={"link"}
       style={{
         marginBottom: 10,
+        alignSelf: "flex-end",
       }}
+      textStyle={{
+          textAlign: "right",
+          alignSelf: "flex-end",
+        }}
     />
 
     {/*   Login button   */}
-    <Button text={"Login"} onPress={loginHandler} preset="filled" />
+    <Button text={"Login"} onPress={loginHandler} preset="filled" style={{
+      borderRadius: 48,
+    }} />
     {/* Login as guest */}
     <Button
       tx={"loginScreen.loginAsGuest"} preset={"link"}
       style={{
-        alignSelf: "center",
-        marginTop: 30,
-        marginBottom: 10,
+        marginTop: 52,
+        marginBottom: 14,
+        justifyContent: "center",
+        alignItems: "center",
+        width: "100%"
       }}
+      RightAccessory={() => (
+        <Icon icon={"caretRight"} size={20} color={colors.palette.primary300} />
+      )}
     />
     {/*   Divider */}
     <View style={$divider}></View>
@@ -96,7 +109,14 @@ export const LoginScreen: FC<LoginScreenProps> = observer(function LoginScreen()
       }
     }>
       <Text tx={"loginScreen.noAccount"} size={"xs"} />
-      <Button tx={"loginScreen.createAccount"} preset={"link"} textStyle={typography.size.xs}
+      <Button tx={"loginScreen.createAccount"} preset={"link"} textStyle={
+        [
+          typography.size.xs,
+          {
+            textDecorationLine: "underline",
+          },
+        ]
+      }
               onPress={() => {
                 navigation.navigate("Register" as never)
               }}
@@ -110,8 +130,9 @@ const $icon: ImageStyle = {
 }
 
 const $textFieldWrapper: ViewStyle = {
-  borderColor: colors.palette.primary300,
+  borderColor: colors.border,
   marginBottom: 14,
+  borderRadius: 12
 }
 
 const $divider: ViewStyle = {

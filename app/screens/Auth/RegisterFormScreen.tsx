@@ -13,11 +13,11 @@
 // ---
 import React, { FC } from "react"
 import { observer } from "mobx-react-lite"
-import { View, ViewStyle } from "react-native"
+import { TextStyle, View, ViewStyle } from "react-native"
 import { AppStackScreenProps } from "app/navigators"
-import { Header, Icon, Screen, TextField, Text, Toggle } from "app/components"
+import { Header, Icon, Screen, TextField, Text, Toggle, Button } from "app/components"
 import { useNavigation, useRoute } from "@react-navigation/native"
-import { colors } from "../../theme"
+import { colors, typography } from "../../theme"
 
 interface RegisterFormScreenProps extends AppStackScreenProps<"RegisterForm"> {
 }
@@ -25,6 +25,10 @@ interface RegisterFormScreenProps extends AppStackScreenProps<"RegisterForm"> {
 export const RegisterFormScreen: FC<RegisterFormScreenProps> = observer(function RegisterFormScreen() {
   // Pull in one of our MST stores
   // const { someStore, anotherStore } = useStores()
+  const route = useRoute()
+  const navigation = useNavigation()
+  const { selectedRole } = route.params as any
+
   const [username, setUsername] = React.useState("")
   const [password, setPassword] = React.useState("")
   const [confirmPassword, setConfirmPassword] = React.useState("")
@@ -33,19 +37,19 @@ export const RegisterFormScreen: FC<RegisterFormScreenProps> = observer(function
   const [lastName, setLastName] = React.useState("")
   const [phone, setPhone] = React.useState("")
 
+  const [hotelName, setHotelName] = React.useState("")
+  const [hotelAddress, setHotelAddress] = React.useState("")
+  const [hotelDescription, setHotelDescription] = React.useState("")
+  const [hotelImage, setHotelImage] = React.useState("")
 
   const [agreeTerm, setAgreeTerm] = React.useState(false)
   // Pull in navigation via hook
-  const navigation = useNavigation()
-  const route = useRoute()
-  const { selectedRole } = route.params as any
+
   return (
     <Screen style={$root} preset="scroll">
       {/* <Text text={selectedRole} /> */}
       {/*   Header    */}
-      <Header titleTx={"registerScreen.register"} style={{
-        marginTop: 32,
-      }}
+      <Header titleTx={"registerScreen.register"}
               LeftActionComponent={
                 <Icon icon={"back"} onPress={() => {
                   navigation.goBack()
@@ -141,33 +145,81 @@ export const RegisterFormScreen: FC<RegisterFormScreenProps> = observer(function
         keyboardType={"phone-pad"}
       />
 
-      {/* Register Term */}
-      <View style={{
-        flexDirection: "row",
-        alignItems: "center",
-        marginTop: 10,
-      }}>
-        <Toggle value={agreeTerm}
-                onValueChange={(value) => {
-                  console.log(`agreeTerm: ${value}`)
-                  setAgreeTerm(value)
-                }}
-                checkboxIcon={"check"}
-                variant={"checkbox"}
-                inputWrapperStyle={{
-                  borderColor: colors.palette.primary300,
-                }}
-        />
-        <Text
-          tx={"registerScreen.term"}
-          style={{
-            color: colors.palette.primary300,
-            flexWrap: "wrap",
-          }}
-          size={"xs"}
+      {selectedRole === "Host" && (
+        <>
+          {/* Hotel name */}
+          <TextField
+            labelTx={"registerScreen.hotelName"}
+            placeholderTx={"registerScreen.hotelName"}
+            inputWrapperStyle={$textFieldWrapper}
+            onChangeText={(text) => setHotelName(text)}
+            value={hotelName}
+            allowFontScaling={false}
+          />
+          {/* Hotel address */}
+          <TextField
+            labelTx={"registerScreen.address"}
+            placeholderTx={"registerScreen.address"}
+            inputWrapperStyle={$textFieldWrapper}
+            onChangeText={(text) => setHotelAddress(text)}
+            value={hotelAddress}
+            allowFontScaling={false}
+          />
+          {/* Hotel description */}
+          <TextField
+            labelTx={"registerScreen.hotelDescription"}
+            placeholderTx={"registerScreen.hotelDescription"}
+            inputWrapperStyle={$descriptionFieldWrapper}
+            onChangeText={(text) => setHotelDescription(text)}
+            value={hotelDescription}
+            allowFontScaling={false}
+          />
+          {/* Hotel Image Input link */}
+          <TextField
+            labelTx={"registerScreen.hotelImage"}
+            placeholderTx={"registerScreen.hotelImage"}
+            inputWrapperStyle={$textFieldWrapper}
+            onChangeText={(text) => setHotelImage(text)}
+            value={hotelImage}
+            allowFontScaling={false}
+          />
+        </>
+      )}
 
+      {/* Register Term */}
+      <View style={$termLine}>
+        <Toggle
+          value={agreeTerm}
+          onValueChange={setAgreeTerm}
+          checkboxIcon={"check"}
+          variant={"checkbox"}
+          inputOuterStyle={$outerToggle}
+          inputInnerStyle={$innerToggle}
         />
+        <View style={$termTextContainer}>
+          <Text
+            tx={"registerScreen.agreeTerm"}
+            style={$agree}
+            size={"xs"}
+            weight={"light"}
+            numberOfLines={2}
+          />
+          <Button
+            tx={"registerScreen.term"}
+            textStyle={$term}
+            preset={"link"}
+            onPress={() => {
+              alert("Term")
+            }}
+          />
+        </View>
       </View>
+
+      {/* Register Button */}
+      <Button tx={"registerScreen.register"}
+              preset={"filled"}
+              style={$registerButton}
+      />
     </Screen>
   )
 })
@@ -178,7 +230,7 @@ const $root: ViewStyle = {
 }
 
 const $backButton: ViewStyle = {
-  // position: "absolute",
+  position: "absolute",
   // top: 52,
   width: 32,
   height: 32,
@@ -197,7 +249,57 @@ const $textFieldContainer: ViewStyle = {
 }
 
 const $textFieldWrapper: ViewStyle = {
-  borderColor: colors.palette.primary300,
+  borderColor: colors.border,
   marginBottom: 14,
   borderRadius: 12,
+}
+
+const $descriptionFieldWrapper: ViewStyle = {
+  ...$textFieldWrapper,
+  height: 200
+}
+
+const $termLine: ViewStyle = {
+  flexDirection: "row",
+  // alignItems: "flex-start", // vertical
+  marginTop: 10,
+  alignContent: "space-between", // horizontal
+  width: "100%",
+}
+const $outerToggle: ViewStyle = {
+  borderColor: colors.palette.primary300,
+  width: 20,
+  height: 20,
+}
+
+const $innerToggle: ViewStyle = {
+  backgroundColor: colors.palette.primary300,
+  width: 10,
+}
+
+const $termTextContainer: ViewStyle = {
+  flexDirection: "row",
+  alignContent: "center",
+  justifyContent: "center",
+  width: "100%",
+}
+
+const $agree: TextStyle = {
+  color: colors.palette.neutral800,
+  textAlign: "center",
+}
+
+const $term: TextStyle = {
+  color: colors.palette.primary300,
+  textAlign: "left",
+  width: 200,
+  ...typography.size.xs,
+  fontWeight: "300",
+}
+
+const $registerButton: ViewStyle = {
+  marginTop: 14,
+  borderRadius: 48,
+  height: 48,
+  marginBottom: 48
 }

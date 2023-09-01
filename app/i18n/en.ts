@@ -53,7 +53,11 @@ const en = {
     phone: "Phone",
     hotel_name: "Hotel Name",
     email: "Email",
-    term: "I agree to the Terms of Service and Privacy Policy",
+    agreeTerm: "I accept ",
+    term: "the Terms of Service and Privacy Policy",
+    hotelName: "Hotel Name",
+    hotelDescription: "Hotel Description",
+    hotelImage: "Hotel Image",
   }
 }
 
