@@ -13,7 +13,7 @@
 // ---
 import React, { FC } from "react"
 import { observer } from "mobx-react-lite"
-import { Image, ImageStyle, TextStyle, View, ViewStyle } from "react-native"
+import { Dimensions, Image, ImageStyle, TextStyle, View, ViewStyle } from "react-native"
 import { AppStackScreenProps } from "app/navigators"
 import { Button, Icon, Screen, Text } from "app/components"
 import { colors } from "../../theme"
@@ -35,7 +35,7 @@ export const RegisterScreen: FC<RegisterScreenProps> = observer(function Registe
       {/*   Back button   */}
       <Icon
         icon={"back"} onPress={() => {
-        navigation.navigate("Login")
+        navigation.navigate("Login" as never)
       }}
         containerStyle={$backButton}
         size={20}
@@ -75,8 +75,8 @@ export const RegisterScreen: FC<RegisterScreenProps> = observer(function Registe
                 </>
               )
             }
-        >
-        </Button>
+          onPress={() => { navigation.navigate("RegisterForm" as never, {selectedRole: "Customer"} as never) }}
+        />
         <Button
           tx={"registerScreen.host"}
           style={$roleButton}
@@ -97,11 +97,11 @@ export const RegisterScreen: FC<RegisterScreenProps> = observer(function Registe
                         numberOfLines={3}
                         size={"xxs"}
                         weight={"light"}
-
                   />
                 </>
               )
-          } />
+          }
+          onPress={() => { navigation.navigate("RegisterForm" as never, {selectedRole: "Host"} as never) }}/>
       </View>
 
     </Screen>
@@ -127,7 +127,7 @@ const $backButton: ViewStyle = {
 }
 
 const $callout: TextStyle = {
-  marginTop: 200,
+  marginTop: Dimensions.get("window").height / 2 - 170,
   marginHorizontal: 24,
   textAlign: "center",
 }

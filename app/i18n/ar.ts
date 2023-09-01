@@ -25,6 +25,35 @@ const ar: Translations = {
       button: "لنحاول هذا مرّة أخرى",
     },
   },
+  loginScreen: {
+    login: "تسجيل الدخول",
+    forgotPassword: "نسيت كلمة المرور؟",
+    createAccount: "إنشاء حساب",
+    noAccount: "إذا لم يكن لديك حساب؟",
+    signUp: "سجل",
+    username: "اسم المستخدم",
+    password: "كلمة المرور",
+    welcome: "مرحبا بكم في سويفت ستاي",
+    loginAsGuest: "تسجيل الدخول كضيف",
+  },
+  registerScreen: {
+    callout: "أنت",
+    register: "تسجيل",
+    customer: "زبون",
+    customerDesc: "من يبحث عن مكان للإقامة",
+    host: "مضيف",
+    hostDesc: "من يوفر مكان للإقامة",
+    firstName: "الاسم الاول",
+    lastName: "الكنية",
+    phoneNumber: "رقم الهاتف",
+    address: "عنوان",
+    city: "مدينة",
+    province: "مقاطعة",
+    phone: "رقم الهاتف",
+    hotel_name: "اسم الفندق",
+    email: "البريد الإلكتروني",
+    term: "أوافق على الشروط والأحكام",
+  }
 }
 
 export default ar

@@ -53,6 +53,7 @@ const ko: Translations = {
     phone: "전화번호",
     hotel_name: "호텔 이름",
     email: "이메일",
+    term: "이용약관과 개인정보취급방침에 동의합니다"
   }
 }
 

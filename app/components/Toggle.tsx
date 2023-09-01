@@ -196,9 +196,13 @@ export function Toggle(props: ToggleProps) {
 
   function handlePress(e: GestureResponderEvent) {
     if (disabled) return
-    onValueChange?.(!value)
+    onValueChange?.(!value) // only call onValueChange if it exists and set true to false or false to true
     onPress?.(e)
   }
+
+  React.useEffect(() => {
+    console.log(`Toggle running: ${value}`)
+  }, [value])
 
   return (
     <Wrapper
@@ -282,6 +286,7 @@ function Checkbox(props: ToggleInputProps) {
     colors.palette.accent100,
   ].filter(Boolean)[0]
 
+  console.log(`checkbox running: ${on}`)
   return (
     <View
       style={[

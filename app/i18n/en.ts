@@ -31,7 +31,6 @@ const en = {
     signUp: "Sign Up",
     username: "Username",
     password: "Password",
-    email: "Email",
     welcome: "Welcome to Swift Stay",
     loginAsGuest: "Login as Guest",
   },
@@ -42,6 +41,9 @@ const en = {
     customerDesc: "Who finds a place to stay",
     host: "Host",
     hostDesc: "Who provides a place to stay",
+    username: "Username",
+    password: "Password",
+    confirmPassword: "Confirm Password",
     firstName: "First Name",
     lastName: "Last Name",
     phoneNumber: "Phone Number",
@@ -51,6 +53,7 @@ const en = {
     phone: "Phone",
     hotel_name: "Hotel Name",
     email: "Email",
+    term: "I agree to the Terms of Service and Privacy Policy",
   }
 }
 

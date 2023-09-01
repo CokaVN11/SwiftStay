@@ -39,74 +39,70 @@ export const LoginScreen: FC<LoginScreenProps> = observer(function LoginScreen()
 
   // Pull in navigation via hook
   const navigation = useNavigation()
-  return (
-    <Screen style={general.page_container}>
-      {/*   App Logo   */}
-      <Icon icon="heart" color={colors.palette.primary300} size={100} style={$icon} />
-      {/*   Input form   */}
-      <TextField
-        labelTx={"loginScreen.username"}
-        placeholderTx={"loginScreen.username"}
-        inputWrapperStyle={$textFieldWrapper}
-        onChangeText={(text) => setUsername(text)}
-        value={username}
-        allowFontScaling={false}
-        autoCapitalize={"none"}
+  return <Screen style={general.page_container}>
+    {/*   App Logo   */}
+    <Icon icon="heart" color={colors.palette.primary300} size={100} style={$icon} />
+    {/*   Input form   */}
+    <TextField
+      labelTx={"loginScreen.username"}
+      placeholderTx={"loginScreen.username"}
+      inputWrapperStyle={$textFieldWrapper}
+      onChangeText={(text) => setUsername(text)}
+      value={username}
+      allowFontScaling={false}
+      autoCapitalize={"none"}
 
-      />
-      <TextField
-        labelTx={"loginScreen.password"}
-        placeholderTx={"loginScreen.password"}
-        inputWrapperStyle={$textFieldWrapper}
-        onChangeText={(text) => setPassword(text)}
-        value={password}
-        allowFontScaling={false}
-        autoCapitalize={"none"}
-        secureTextEntry={true}
-      />
+    />
+    <TextField
+      labelTx={"loginScreen.password"}
+      placeholderTx={"loginScreen.password"}
+      inputWrapperStyle={$textFieldWrapper}
+      onChangeText={(text) => setPassword(text)}
+      value={password}
+      allowFontScaling={false}
+      autoCapitalize={"none"}
+      secureTextEntry={true}
+    />
 
-      {/*   Forget password */}
-      <Button
-        tx="loginScreen.forgotPassword"
-        onPress={() => {
-          alert("Forgot password")
-        }} preset={"link"}
-        style={{
-          marginBottom: 10,
-        }}
-      />
+    {/*   Forget password */}
+    <Button
+      tx="loginScreen.forgotPassword"
+      onPress={() => {
+        alert("Forgot password")
+      }} preset={"link"}
+      style={{
+        marginBottom: 10,
+      }}
+    />
 
-      {/*   Login button   */}
-      <Button text={"Login"} onPress={loginHandler} preset="filled" />
-      {/* Login as guest */}
-      <Button
-        tx={"loginScreen.loginAsGuest"} preset={"link"}
-        style={{
-          alignSelf: "center",
-          marginTop: 30,
-          marginBottom: 10,
-        }}
+    {/*   Login button   */}
+    <Button text={"Login"} onPress={loginHandler} preset="filled" />
+    {/* Login as guest */}
+    <Button
+      tx={"loginScreen.loginAsGuest"} preset={"link"}
+      style={{
+        alignSelf: "center",
+        marginTop: 30,
+        marginBottom: 10,
+      }}
+    />
+    {/*   Divider */}
+    <View style={$divider}></View>
+    {/*   Register field */}
+    <View style={
+      {
+        flexDirection: "row",
+        justifyContent: "center",
+      }
+    }>
+      <Text tx={"loginScreen.noAccount"} size={"xs"} />
+      <Button tx={"loginScreen.createAccount"} preset={"link"} textStyle={typography.size.xs}
+              onPress={() => {
+                navigation.navigate("Register" as never)
+              }}
       />
-      {/*   Divider */}
-      <View style={$divider}></View>
-      {/*   Register field */}
-      <View style={
-        {
-          flexDirection: "row",
-          justifyContent: "center",
-        }
-      }>
-        <Text tx={"loginScreen.noAccount"} size={"xs"} />
-        <Button tx={"loginScreen.createAccount"} preset={"link"} textStyle={typography.size.xs}
-                onPress={() => {
-                  navigation.navigate("Register")
-                }
-                }
-        />
-      </View>
-    </Screen>
-
-  )
+    </View>
+  </Screen>
 })
 const $icon: ImageStyle = {
   alignSelf: "center",

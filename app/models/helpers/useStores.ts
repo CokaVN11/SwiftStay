@@ -5,7 +5,7 @@ import { setupRootStore } from "./setupRootStore"
 /**
  * Create the initial (empty) global RootStore instance here.
  *
- * Later, it will be rehydrated in app.tsx with the setupRootStore function.
+ * Later it will be rehydrated in app.tsx with the setupRootStore function.
  *
  * If your RootStore requires specific properties to be instantiated,
  * you can do so here.
