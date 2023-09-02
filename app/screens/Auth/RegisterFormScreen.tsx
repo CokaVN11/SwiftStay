@@ -156,7 +156,35 @@ export const RegisterFormScreen: FC<RegisterFormScreenProps> = observer(function
             value={hotelName}
             allowFontScaling={false}
           />
-          {/* Hotel address */}
+          {/* Hotel address section */}
+          {/* <TextField */}
+          {/*   labelTx={"registerScreen.address"} */}
+          {/*   placeholderTx={"registerScreen.address"} */}
+          {/*   inputWrapperStyle={$textFieldWrapper} */}
+          {/*   onChangeText={(text) => setHotelAddress(text)} */}
+          {/*   value={hotelAddress} */}
+          {/*   allowFontScaling={false} */}
+          {/* /> */}
+          <>
+          {/* Province */}
+          <TextField
+            labelTx={"registerScreen.province"}
+            placeholderTx={"registerScreen.province"}
+            inputWrapperStyle={$textFieldWrapper}
+            onChangeText={(text) => setHotelAddress(text)}
+            value={hotelAddress}
+            allowFontScaling={false}
+          />
+          {/* City */}
+          <TextField
+            labelTx={"registerScreen.city"}
+            placeholderTx={"registerScreen.city"}
+            inputWrapperStyle={$textFieldWrapper}
+            onChangeText={(text) => setHotelAddress(text)}
+            value={hotelAddress}
+            allowFontScaling={false}
+          />
+          {/* Detail address */}
           <TextField
             labelTx={"registerScreen.address"}
             placeholderTx={"registerScreen.address"}
@@ -165,6 +193,7 @@ export const RegisterFormScreen: FC<RegisterFormScreenProps> = observer(function
             value={hotelAddress}
             allowFontScaling={false}
           />
+          </>
           {/* Hotel description */}
           <TextField
             labelTx={"registerScreen.hotelDescription"}
